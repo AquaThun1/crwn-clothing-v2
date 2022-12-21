@@ -97,9 +97,7 @@ const SignUpForm = () => {
           onChange={handleChange}
         />
 
-        <Button type='submit' buttonType={"google"}>
-          Sign-up
-        </Button>
+        <Button>Sign-up</Button>
       </form>
     </div>
   );
