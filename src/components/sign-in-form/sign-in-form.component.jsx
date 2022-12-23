@@ -27,16 +27,18 @@ const SignInForm = () => {
 
   const loginGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+  };
+
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const test = await signInWithEmailAndPasswordAnonymously(email, password);
-
-      console.log(test);
+      await signInWithEmailAndPasswordAnonymously(email, password);
+      resetFormFields();
     } catch (error) {
       console.log(error.message);
     }
