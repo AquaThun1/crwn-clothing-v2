@@ -12,7 +12,9 @@ const CheckoutItem = ({ cartItem }) => {
         <img src={imageUrl} alt={`${name}`} />
       </div>
       <span className='name'>{name}</span>
-      <Incrementer className='quantity' checkoutItem={cartItem} />
+      <div className='quantity'>
+        <Incrementer checkoutItem={cartItem} />
+      </div>
       <span className='price'>{price}</span>
       <RemoveButton id={id} />
     </div>
