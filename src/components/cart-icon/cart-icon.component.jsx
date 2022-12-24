@@ -11,7 +11,7 @@ const CartIcon = () => {
   return (
     <div
       className='cart-icon-container'
-      onClick={() => setShowCartDropdown(!showCartDropdown && cartCount > 0)}
+      onClick={() => setShowCartDropdown(!showCartDropdown)}
     >
       <ShoppingBagIcon className='shopping-icon' />
       <span className='item-count'>{cartCount}</span>
