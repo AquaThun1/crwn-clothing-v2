@@ -1,12 +1,12 @@
 import { useContext } from "react";
 
-import CheckoutItemList from "../../components/checkout-item-list/checkout-item-list.component";
+import CheckoutItem from "../../components/checkout-item/checkout-item.compomnent";
 import { CartContext } from "../../contexts/cart.context";
 
 import "./checkout.styles.scss";
 
 const Checkout = () => {
-  const { totalCost } = useContext(CartContext);
+  const { totalCost, cartItems } = useContext(CartContext);
 
   return (
     <div className='checkout-container'>
@@ -27,7 +27,9 @@ const Checkout = () => {
           <span>Remove</span>
         </div>
       </div>
-      <CheckoutItemList />
+      {cartItems.map((cartItem) => (
+        <CheckoutItem cartItem={cartItem} key={cartItem.id} />
+      ))}
 
       <span className='total'>{`Total: R ${totalCost}`}</span>
     </div>

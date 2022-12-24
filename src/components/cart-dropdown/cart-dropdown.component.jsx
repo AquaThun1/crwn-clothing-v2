@@ -15,7 +15,7 @@ const CartDropdown = () => {
         <>
           <div className='cart-items'>
             {cartItems.map((cartItem) => (
-              <CartItem cartItem={cartItem} />
+              <CartItem cartItem={cartItem} key={cartItem.id} />
             ))}
           </div>
           <Link to={"/checkout"} onClick={() => setShowCartDropdown(false)}>
