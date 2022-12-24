@@ -40,6 +40,7 @@ export const CartProvider = ({ children }) => {
       (total, cartItem) => total + cartItem.quantity * cartItem.price,
       0
     );
+
     setTotalCost(newCost);
     setCartCount(newCartCount);
   }, [cartItems]);
@@ -51,15 +52,15 @@ export const CartProvider = ({ children }) => {
   };
 
   const adjustQuantity = (increment, productId) => {
-    setCartItems(
-      cartItems.map((cartItem) =>
-        cartItem.id === productId
-          ? increment
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : { ...cartItem, quantity: cartItem.quantity - 1 }
-          : cartItem
-      )
+    const newCartItems = cartItems.map((cartItem) =>
+      cartItem.id === productId
+        ? increment
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : { ...cartItem, quantity: cartItem.quantity - 1 }
+        : cartItem
     );
+
+    setCartItems(newCartItems.filter((item) => item.quantity > 0));
   };
 
   const removeItem = (productId) => {

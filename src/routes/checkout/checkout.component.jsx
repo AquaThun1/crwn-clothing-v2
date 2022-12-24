@@ -1,4 +1,5 @@
 import { useContext } from "react";
+
 import CheckoutItemList from "../../components/checkout-item-list/checkout-item-list.component";
 import { CartContext } from "../../contexts/cart.context";
 
@@ -8,20 +9,27 @@ const Checkout = () => {
   const { totalCost } = useContext(CartContext);
 
   return (
-    <div className='checkout-page'>
-      <div className='item-descriptions'>
-        <span>Product</span>
-        <span>Description</span>
-        <span>Quantity</span>
-        <span>Price</span>
-        <span>Remove</span>
+    <div className='checkout-container'>
+      <div className='checkout-header'>
+        <div className='header-block'>
+          <span>Product</span>
+        </div>
+        <div className='header-block'>
+          <span>Description</span>
+        </div>
+        <div className='header-block'>
+          <span>Quantity</span>
+        </div>
+        <div className='header-block'>
+          <span>Price</span>
+        </div>
+        <div className='header-block'>
+          <span>Remove</span>
+        </div>
       </div>
-      <div className='checkout-items'>
-        <CheckoutItemList />
-      </div>
-      <div className='total-cost'>
-        <span>{`Total: R ${totalCost}`}</span>
-      </div>
+      <CheckoutItemList />
+
+      <span className='total'>{`Total: R ${totalCost}`}</span>
     </div>
   );
 };

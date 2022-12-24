@@ -1,17 +1,19 @@
-import "./checkout-item.styles.scss";
-import { IconButton } from "@mui/material";
 import Incrementer from "../quantity-adjuster/quantity-adjuster.component";
 import RemoveButton from "../remove/remove.component";
 
-const CheckoutItem = ({ checkoutItem }) => {
-  const { name, quantity, price, imageUrl, id } = checkoutItem;
+import "./checkout-item.styles.scss";
+
+const CheckoutItem = ({ cartItem }) => {
+  const { name, price, imageUrl, id } = cartItem;
 
   return (
     <div className='checkout-item-container'>
-      <img src={imageUrl} alt={`${name}`} />
-      <span>{name}</span>
-      <Incrementer checkoutItem={checkoutItem} />
-      <span>{price}</span>
+      <div className='image-container'>
+        <img src={imageUrl} alt={`${name}`} />
+      </div>
+      <span className='name'>{name}</span>
+      <Incrementer className='quantity' checkoutItem={cartItem} />
+      <span className='price'>{price}</span>
       <RemoveButton id={id} />
     </div>
   );
