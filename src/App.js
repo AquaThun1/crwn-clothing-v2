@@ -13,7 +13,8 @@ const App = () => {
         {/* Index bascially says when you see the '/' render this component */}
         <Route index element={<Home />} />
         <Route path='auth' element={<Authentication />} />
-        <Route path='shop' element={<Shop />} />
+        {/* macthes anything if it has shop as its starting route */}
+        <Route path='shop/*' element={<Shop />} />
         <Route path='checkout' element={<Checkout />} />
       </Route>
     </Routes>
